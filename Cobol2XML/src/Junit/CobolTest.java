@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import cobol.Cobol;
 
 class CobolTest {
+	
+	//The Junit Test for the Cobol
 
 	@Test
 	void testSetterAndGetters() {

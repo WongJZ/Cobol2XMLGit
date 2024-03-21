@@ -10,6 +10,8 @@ import cobol.Cobol;
 import xmlwriter.XMLPayload;
 
 class XMLPayloadTest {
+	
+	//The Junit Test for the XMLPayload
 
 	@Test
 	void testAddElements_WithAllCobolProperties() {
