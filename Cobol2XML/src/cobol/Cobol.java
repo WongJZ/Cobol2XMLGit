@@ -31,6 +31,9 @@ public class Cobol implements PubliclyCloneable {
 	protected int dayDateWritten = 0;
 	protected String monthDateWritten;
 	protected int yearDateWritten = 0;
+	protected String constantName;
+	protected double constantValue;
+	protected int lineNumber = 0;
 
 	
 	/**
@@ -157,6 +160,7 @@ public class Cobol implements PubliclyCloneable {
 		return monthDateWritten;
 	}
 	
+	
 	/**
 	 * Return the dayDateWritten of this COBOL program.
 	 *
@@ -164,6 +168,34 @@ public class Cobol implements PubliclyCloneable {
 	 */
 	public int getYearDateWritten() {
 		return yearDateWritten;
+	}
+	
+
+	/**
+	 * Return the constantName of this COBOL program.
+	 *
+	 * @return the constantName of this COBOL program
+	 */
+	public String getConstantName() {
+		return constantName;
+	}
+	
+	/**
+	 * Return the constantValue of this COBOL program.
+	 *
+	 * @return the constantValue of this COBOL program
+	 */
+	public Double getConstantValue() {
+		return constantValue;
+	}
+	
+	/**
+	 * Return the lineNumber of this COBOL program.
+	 *
+	 * @return the lineNumber of this COBOL program
+	 */
+	public Integer getLineNumber() {
+		return lineNumber;
 	}
 	
 	/**
@@ -230,6 +262,33 @@ public class Cobol implements PubliclyCloneable {
 	 */
 	public void setDivisionName(String divisionName) {
 		this.divisionName = divisionName;
+	}
+	
+	/**
+	 * Set the division name 
+	 *
+	 * @param  String divisionName
+	 */
+	public void setConstantName(String constantName) {
+		this.constantName = constantName;
+	}
+	
+	/**
+	 * Set the division name 
+	 *
+	 * @param  String divisionName
+	 */
+	public void setConstantValue(Double constantValue) {
+		this.constantValue = constantValue;
+	}
+	
+	/**
+	 * Set the division name 
+	 *
+	 * @param  String divisionName
+	 */
+	public void setLineNumber(Integer lineNumber) {
+		this.lineNumber = lineNumber;
 	}
 
 	/**
