@@ -280,11 +280,13 @@ public class XMLPayload {
 	}
 
 
+	@SuppressWarnings("exports")
 	public Document getDoc() {
 		return doc;
 	}
 
 
+	@SuppressWarnings("exports")
 	public void setDoc(Document doc) {
 		this.doc = doc;
 	}

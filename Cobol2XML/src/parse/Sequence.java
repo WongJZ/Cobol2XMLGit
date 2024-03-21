@@ -112,6 +112,7 @@ public ArrayList<Assembly> match(ArrayList<Assembly> in) {
  * Create a random expansion for each parser in this 
  * sequence and return a collection of all these expansions.
  */
+@SuppressWarnings("unchecked")
 protected ArrayList<Assembly> randomExpansion(int maxDepth, int depth) {
 	LOGGER.info("random expansion");
 	ArrayList<Assembly> v = new ArrayList<Assembly>();

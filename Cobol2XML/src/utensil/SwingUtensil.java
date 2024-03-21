@@ -31,6 +31,7 @@ public class SwingUtensil {
  * Set the location of a frame to be the center of the
  * screen.
  */
+@SuppressWarnings("exports")
 public static void center(Frame f) {
 	Dimension sDim = 
 		Toolkit.getDefaultToolkit().getScreenSize();
@@ -51,6 +52,7 @@ public static void center(Frame f) {
  * A standard font for interactive development environment
  * text areas.
  */
+@SuppressWarnings("exports")
 public static Font ideFont() {
 	int style = Font.PLAIN;
 	int size = 18;
@@ -66,6 +68,7 @@ public static Font ideFont() {
  * Return a standard text area, with the standard font
  * and border, and with word wrapping enabled.
  */
+@SuppressWarnings("exports")
 public static JTextArea ideTextArea() {
 	JTextArea ta = new JTextArea();
 	ta.setFont(ideFont());
@@ -76,6 +79,7 @@ public static JTextArea ideTextArea() {
 /**
  * Return a standard titled border.
  */
+@SuppressWarnings("exports")
 public static TitledBorder ideTitledBorder(String title) {
 	TitledBorder tb = BorderFactory.createTitledBorder(
 		BorderFactory.createBevelBorder(BevelBorder.RAISED), 
@@ -91,6 +95,7 @@ public static TitledBorder ideTitledBorder(String title) {
  * component; center and  display the frame; listen for
  * exit, closing the frame's window on exit.
  */
+@SuppressWarnings("exports")
 public static JFrame launch(Component c, String title) {
 	JFrame frame = new JFrame(title);
 	frame.getContentPane().add(c);
@@ -103,6 +108,7 @@ public static JFrame launch(Component c, String title) {
 /*
  * Set up an exit listener for a frame.
  */
+@SuppressWarnings("exports")
 public static void listen(Frame f) {
 	f.addWindowListener(new WindowAdapter() {
 		@Override
@@ -126,6 +132,7 @@ public static void listen(Frame f) {
  * @return a standard text panel, with a scroll pane 
  *         around a text area, and with a title border.
  */
+@SuppressWarnings("exports")
 public static JPanel textPanel(
 	String title, JTextArea ta, 
 	Dimension pref, Dimension min) {

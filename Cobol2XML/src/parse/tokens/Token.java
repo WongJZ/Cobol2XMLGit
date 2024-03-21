@@ -242,6 +242,7 @@ public TokenType ttype() {
  *
  * @return  an object that represents the value of this token
  */
+@SuppressWarnings("removal")
 public Object value() {
 	if (ttype == TT_NUMBER) {
 		return new Double(nval);

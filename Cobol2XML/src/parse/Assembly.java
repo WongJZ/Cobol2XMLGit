@@ -29,6 +29,7 @@ public abstract class Assembly implements Enumeration<Object>, PubliclyCloneable
 	 *
 	 * @return a copy of this object
 	 */
+	@SuppressWarnings("unchecked")
 	public Object clone() {
 		try {
 			Assembly a = (Assembly) super.clone();
