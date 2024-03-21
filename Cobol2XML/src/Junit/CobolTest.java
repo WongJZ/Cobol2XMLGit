@@ -46,6 +46,6 @@ class CobolTest {
 
 	    String expectedString = "MyCobolProgram, IDENTIFICATION, ";
 	    assertEquals(expectedString, cobol.toString());
-	  }
+	}
 
 }

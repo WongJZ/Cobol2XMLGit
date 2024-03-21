@@ -51,11 +51,10 @@ class XMLPayloadTest {
 	    assertEquals("10", constantElement.getChildNodes().item(1).getAttributes().getNamedItem("Line_Number").getTextContent());
 	    assertEquals("3.14159", constantElement.getChildNodes().item(2).getAttributes().getNamedItem("Value").getTextContent());
 
-	    // You can add similar assertions for other elements
-	  }
+	}
 
-	  @Test
-	  void testAddElements_WithEmptyProperties() {
+	@Test
+	void testAddElements_WithEmptyProperties() {
 	    Cobol cobol = new Cobol();
 
 	    XMLPayload xmlPayload = new XMLPayload();
@@ -71,13 +70,12 @@ class XMLPayloadTest {
 	    assertEquals(0, doc.getElementsByTagName("section").getLength());
 	    assertEquals(0, doc.getElementsByTagName("division").getLength());
 	    assertEquals(0, doc.getElementsByTagName("Constant").getLength());
-	  }
+	}
 
-	  @Test
-	  void testWriteFile() throws Exception {
+	@Test
+	void testWriteFile() throws Exception {
 	    // This test requires modifying the actual file writing logic.
 	    // It's recommended to mock the file writing functionality for unit testing.
-	    // You can remove this test or implement mocking for writeFile method.
-	  }
+	}
 
 }
