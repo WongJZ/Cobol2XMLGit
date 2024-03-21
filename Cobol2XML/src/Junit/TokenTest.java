@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import parse.tokens.Token;
 
 class TokenTest {
+	
+	//The Junit Test for the Token
 
 	@Test
 	void test() {

@@ -7,6 +7,8 @@ import parse.tokens.Symbol;
 import java.util.ArrayList;
 
 class SymbolTest {
+	
+	//The Junit Test for the Symbol
 
 	@Test
 	void test() {

@@ -43,7 +43,7 @@ import java.util.logging.Logger;
 
 
 public class XMLPayload {
-	Document doc;
+	private Document doc;
 	Element rootElement;
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
@@ -55,11 +55,11 @@ public class XMLPayload {
 		dbFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, ""); // XML parsers should not be vulnerable to XXE attacks
 		DocumentBuilder dBuilder = 
 		            dbFactory.newDocumentBuilder();
-		doc = dBuilder.newDocument();
+		setDoc(dBuilder.newDocument());
 		
 		 // root element
-        rootElement = doc.createElement("cobol");
-        doc.appendChild(rootElement);
+        rootElement = getDoc().createElement("cobol");
+        getDoc().appendChild(rootElement);
 		
 		 } catch (Exception e) {
 	         e.printStackTrace();
@@ -150,8 +150,8 @@ public class XMLPayload {
 		//  Program ID element
 		
 		if(stringElement != null) {
-			Element cobolname = doc.createElement("Program-ID");
-			cobolname.appendChild(doc.createTextNode(stringElement));
+			Element cobolname = getDoc().createElement("Program-ID");
+			cobolname.appendChild(getDoc().createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -160,8 +160,8 @@ public class XMLPayload {
 		//  Comment Line element
 		
 		if(stringElement != null) {
-			Element cobolname = doc.createElement("comment");
-			cobolname.appendChild(doc.createTextNode(stringElement));
+			Element cobolname = getDoc().createElement("comment");
+			cobolname.appendChild(getDoc().createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -172,8 +172,8 @@ public class XMLPayload {
 		//  Section element
 		
 		if(stringElement != null) {
-			Element cobolname = doc.createElement("section");
-			cobolname.appendChild(doc.createTextNode(stringElement));
+			Element cobolname = getDoc().createElement("section");
+			cobolname.appendChild(getDoc().createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -181,8 +181,8 @@ public class XMLPayload {
  	void addDivisionElement(String stringElement) {
 		//  Division element
 		if(stringElement != null) {
-			Element cobolname = doc.createElement("division");
-			cobolname.appendChild(doc.createTextNode(stringElement));
+			Element cobolname = getDoc().createElement("division");
+			cobolname.appendChild(getDoc().createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -191,9 +191,9 @@ public class XMLPayload {
 		//  DayDateWritten element
 		
 		if(intElement != 0) {
-			Element cobolname = doc.createElement("day-date-written");
+			Element cobolname = getDoc().createElement("day-date-written");
 			String s = "" + intElement;
-			cobolname.appendChild(doc.createTextNode(s));
+			cobolname.appendChild(getDoc().createTextNode(s));
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -202,8 +202,8 @@ public class XMLPayload {
 		//  MonthWritten element
 		
 		if(stringElement != null) {
-			Element cobolname = doc.createElement("month-date-written");
-			cobolname.appendChild(doc.createTextNode(stringElement));
+			Element cobolname = getDoc().createElement("month-date-written");
+			cobolname.appendChild(getDoc().createTextNode(stringElement));
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -212,9 +212,9 @@ public class XMLPayload {
 		//  YearDateWritten element
 		
 		if(intElement != 0) {
-			Element cobolname = doc.createElement("year-date-written");
+			Element cobolname = getDoc().createElement("year-date-written");
 			String s = "" + intElement;
-			cobolname.appendChild(doc.createTextNode(s));
+			cobolname.appendChild(getDoc().createTextNode(s));
 			rootElement.appendChild(cobolname);
 		}
 	}
@@ -223,22 +223,22 @@ public class XMLPayload {
 			double constantValue, int lineNumber) {
 				// Program ID element
 				if(constantName != null) {
-					Element cobolname = doc.createElement("Constant");
+					Element cobolname = getDoc().createElement("Constant");
 					// insert name of constant into XML file
-					Element constID = doc.createElement("Constant");
-					Attr attrType2 = doc.createAttribute("Name" );
+					Element constID = getDoc().createElement("Constant");
+					Attr attrType2 = getDoc().createAttribute("Name" );
 					attrType2.setValue( constantName );
 					constID.setAttributeNode(attrType2);
 					cobolname.appendChild(constID);
 					// insert line number of constant into XML file
-					Element lineID = doc.createElement(constantName);
-					Attr attrType = doc.createAttribute("Line_Number" );
+					Element lineID = getDoc().createElement(constantName);
+					Attr attrType = getDoc().createAttribute("Line_Number" );
 					attrType.setValue( Integer.toString(lineNumber) );
 					lineID.setAttributeNode(attrType);
 					cobolname.appendChild(lineID);
 					// insert value of constant into XML file
-					Element constantID = doc.createElement(constantName);
-					Attr attrType1 = doc.createAttribute("Value" );
+					Element constantID = getDoc().createElement(constantName);
+					Attr attrType1 = getDoc().createAttribute("Value" );
 					attrType1.setValue( Double.toString(constantValue) );
 					constantID.setAttributeNode(attrType1);
 					cobolname.appendChild(constantID);
@@ -256,7 +256,7 @@ public class XMLPayload {
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        DOMSource source = new DOMSource(doc);
+        DOMSource source = new DOMSource(getDoc());
         
         StreamResult result = new StreamResult(new File(filename));
         transformer.transform(source, result);
@@ -277,6 +277,16 @@ public class XMLPayload {
 		 } catch (Exception e) {
 	         e.printStackTrace();
 	     }
+	}
+
+
+	public Document getDoc() {
+		return doc;
+	}
+
+
+	public void setDoc(Document doc) {
+		this.doc = doc;
 	}
 
 }
